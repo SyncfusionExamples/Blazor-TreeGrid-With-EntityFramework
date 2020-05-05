@@ -76,6 +76,7 @@ namespace TreeGridWebApiEFSample.Controllers
 
             IQueryable<TreeGridWebApiEFSample.Shared.Models.Task> data1 = db.GetAllRecords().AsQueryable();
             var i = 0;
+            // For loop for Finding the parent record and setting it's "HasChildMapping"(here it is "IsParent")  to true
             for (; i < data1.ToList().Count; i++)
             {
                 if (data1.ToList()[i].TaskID == Task.ParentID)
@@ -114,6 +115,8 @@ namespace TreeGridWebApiEFSample.Controllers
             TreeGridWebApiEFSample.Shared.Models.Task val = data2.Where(or => or.TaskID == Task.TaskID).FirstOrDefault();
             val.TaskID = Task.TaskID;
             val.TaskName = Task.TaskName;
+            val.Duration = Task.Duration;
+            val.Progress = Task.Progress;
             db.UpdateTask(val);
             return val;
         }

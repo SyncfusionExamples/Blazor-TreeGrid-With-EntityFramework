@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30001.183
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeGridWebApiEFSample", "TreeGridWebApiEFSample\TreeGridWebApiEFSample.csproj", "{372667A2-1BD7-43B7-91E4-7266B0131A78}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Syncfusion.Blazor", "..\Blazor Source\ej2-blazor-source\Syncfusion.Blazor\Syncfusion.Blazor.csproj", "{D019E1B6-0C95-42D6-96D4-66B93F8922BB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{372667A2-1BD7-43B7-91E4-7266B0131A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{372667A2-1BD7-43B7-91E4-7266B0131A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{372667A2-1BD7-43B7-91E4-7266B0131A78}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D019E1B6-0C95-42D6-96D4-66B93F8922BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D019E1B6-0C95-42D6-96D4-66B93F8922BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D019E1B6-0C95-42D6-96D4-66B93F8922BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D019E1B6-0C95-42D6-96D4-66B93F8922BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
