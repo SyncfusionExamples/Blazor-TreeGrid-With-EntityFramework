@@ -1,0 +1,34 @@
+﻿@page "/"
+
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor.Data
+@using Syncfusion.Blazor.Buttons
+@using Syncfusion.Blazor.TreeGrid
+@using Shared.Models
+
+<SfTreeGrid TValue="Shared.Models.Task" @ref="treeGrid" IdMapping="TaskID" AllowPaging="true"
+            ParentIdMapping="ParentID" HasChildMapping="IsParent"
+            TreeColumnIndex="0" Toolbar="Toolbaritems">
+    <SfDataManager Url="https://localhost:44309/api/TreeGrid" Adaptor="Adaptors.WebApiAdaptor" CrossDomain="true"></SfDataManager>
+    <TreeGridEditSettings AllowEditing="true"
+                          AllowAdding="true"
+                          AllowDeleting="true"
+                          Mode="Syncfusion.Blazor.TreeGrid.EditMode.Row"
+                          NewRowPosition="Syncfusion.Blazor.TreeGrid.RowPosition.Child"></TreeGridEditSettings>
+    <TreeGridColumns>
+        <TreeGridColumn Field="TaskID" HeaderText="Task ID" Width="80" IsPrimaryKey="true" Type=ColumnType.Number></TreeGridColumn>
+        <TreeGridColumn Field="TaskName" HeaderText="Task Name" Width="160" Type=ColumnType.String></TreeGridColumn>
+        <TreeGridColumn Field="Duration" HeaderText="Duration" Width="160" Type=ColumnType.Number></TreeGridColumn>
+        <TreeGridColumn Field="Progress" HeaderText="Progress" Width="160" Type=ColumnType.Number></TreeGridColumn>
+
+    </TreeGridColumns>
+</SfTreeGrid>
+
+
+@code {
+
+    SfTreeGrid<Shared.Models.Task> treeGrid { get; set; }
+
+    private List<Object> Toolbaritems = new List<Object>() { "Add", "Edit", "Delete", "Update", "Cancel" };
+
+}
