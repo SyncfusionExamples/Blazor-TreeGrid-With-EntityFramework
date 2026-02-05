@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
 
 namespace TreeGrdiWithEF.Shared.DataAccess
@@ -14,7 +15,13 @@ namespace TreeGrdiWithEF.Shared.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\GitHub\SyncfusionExamples\TreeGrid\treegrid-with-entityframework\tree1\TreeGrdiWithEF (2) 1\TreeGrdiWithEF\Shared\App_Data\TreeGridDB.mdf;Integrated Security=True;Connect Timeout=30");
+                var basePath = Directory.GetCurrentDirectory();
+                var candidate1 = Path.Combine(basePath, "Shared", "App_Data", "TreeGridDB.mdf");
+                var candidate2 = Path.Combine(basePath, "App_Data", "TreeGridDB.mdf");
+                var dbFile = File.Exists(candidate1) ? candidate1 : candidate2;
+
+                var conn = $"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={dbFile};Integrated Security=True;Connect Timeout=30";
+                optionsBuilder.UseSqlServer(conn, o => o.EnableRetryOnFailure());
             }
         }
     }
